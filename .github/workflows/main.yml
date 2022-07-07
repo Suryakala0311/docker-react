@@ -1,0 +1,24 @@
+name: deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest Repo
+        uses: actions/checkout@master
+      
+      - name: deployment-package
+        run: zip -r deploy.zip * -x **node_modules**
+      
+      - name: deploy-to-EB
+        uses: einaregilsson/beanstalk-deploy@v14
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACESS_KEY }}
+          application_name: react-web-app
+          environment_name: Reactwebapp-env
+          version_label: "Sample Application"
+          region: us-west-1
