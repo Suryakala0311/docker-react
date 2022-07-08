@@ -22,4 +22,4 @@ jobs:
           environment_name: Reactapp-env
           version_label: "Sample Application"
           region: us-west-1
-          deployment_package: deploy.zip
+  
