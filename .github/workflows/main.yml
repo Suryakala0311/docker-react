@@ -18,8 +18,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACESS_KEY }}
-          application_name: react-web-app
-          environment_name: Reactwebapp-env
+          application_name: eact-app
+          environment_name: Reactapp-env
           version_label: "Sample Application"
           region: us-west-1
           deployment_package: deploy.zip
